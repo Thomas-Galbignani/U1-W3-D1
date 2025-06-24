@@ -3,9 +3,11 @@
   prima e gli ultimi 3 della seconda. Converti la stringa risultante in maiuscolo e mostrala con un console.log().
 */
 const concatenamento = function (st1, st2) {
-  return st1 + st2;
+  let result = st1.slice(0, 2) + st2.slice(-3);
+  result = result.toUpperCase();
+  console.log(result);
 };
-console.log(concatenamento(`ciao`, ` mondo`));
+concatenamento(`ciao`, ` mondo`);
 
 /* ESERCIZIO 2 (for)
   Scrivi una funzione che torni un array di 10 elementi; ognuno di essi deve essere un valore random compreso tra 0 e 100 (incluso).
@@ -13,12 +15,12 @@ console.log(concatenamento(`ciao`, ` mondo`));
 const arr1 = [];
 const creaArray = function () {
   for (let i = 0; i < 10; i++) {
-    arr1.push(Math.ceil(Math.random() * 100));
+    arr1.push(Math.floor(Math.random() * 101));
   }
+  console.log(arr1);
   return arr1;
 };
 creaArray();
-console.log(arr1);
 
 /* ESERCIZIO 3 (filter)
   Scrivi una funzione per ricavare solamente i valori PARI da un array composto da soli valori numerici
@@ -38,6 +40,16 @@ console.log(sum);
 /* ESERCIZIO 5 (reduce)
   Scrivi una funzione per sommare i numeri contenuti in un array
 */
+
+// riduce tutto un array in un singolo elemento
+
+const numeriConReduce = function () {
+  const totalone = arr1.reduce((acc, n) => {
+    return acc + n;
+  }, 0);
+  return totalone;
+};
+console.log(numeriConReduce());
 
 /* ESERCIZIO 6 (map)
   Scrivi una funzione che, dato un array di soli numeri e un numero n come parametri, ritorni un secondo array con tutti i valori del precedente incrementati di n
@@ -262,6 +274,12 @@ console.log(filmOltre2000);
 /* ESERCIZIO 13 (reduce)
   Scrivi una funzione per calcolare la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array fornito.
 */
+//const findAllAges = function () {
+//  return movies.reduce((ecc, el) => {
+//  return acc + parseInt(el.Year);
+//});
+//};
+//console.log(findAllAges());
 
 /* ESERCIZIO 14 (find)
   Scrivi una funzione per ottenere dall'array fornito uno specifico film (la funzione riceve un imdbID come parametro).
